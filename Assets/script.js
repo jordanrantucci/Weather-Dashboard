@@ -12,7 +12,8 @@ const searchButton =  $("#search-button");
         //console.log(cityName)
         const queryURLweather = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey
         const queryURLforecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey
-   
+       
+        
 
 
     $.ajax({
@@ -28,9 +29,23 @@ const searchButton =  $("#search-button");
         // console.log(response);
         const cityName = response.name
         const cityNameDiv = $("<div>");
-        cityNameDiv.text(cityName)
+        const date = new Date
+        const dateDisplay = (date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear()
+        cityNameDiv.text(cityName + " (" +dateDisplay+ ")")
         cityNameDiv.css("font-size", "28px").css("font-weight", "bold")
         $("#today").append(cityNameDiv);
+        // // dateDisplay.css("font-size", "24px").css("font-weight", "bold")
+        // $("#today").append(dateDisplay)
+
+        const lat = response.coord.lat
+        const long = response.coord.lon
+        const queryURLuv = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=" + apiKey
+
+        $.ajax({
+            url: queryURLuv,
+            method: "GET"
+        }).then(function(responseOneCall){
+            const uvIndex = responseOneCall.current.uvi
 
         const temperature = response.main.temp;
         const temperature2 = temperature.toFixed(0);
@@ -45,6 +60,19 @@ const searchButton =  $("#search-button");
         const windSpeedDiv = $("<div>");
         windSpeedDiv.text("Windspeed: " + (windSpeed) + " MPH");
         $("#today").append(windSpeedDiv);
+
+        const uvDiv = $("<div id=uvDiv>");
+        uvDiv.text("UV Index: " + uvIndex)
+        $("#today").append(uvDiv);
+        if(uvIndex>=0 && uvIndex <=4){
+            $("#uvDiv").css("background-color", "aqua").css("width", "110px")
+        } else if (uvIndex>4 && uvIndex <=9){
+            $("#uvDiv").css("background-color", "yellow").css("width", "110px")
+        } else if (uvIndex>9){
+            $("#uvDiv").css("background-color", "red").css("width", "110px")
+        }
+
+        $("#forecast").append("<h4>5-day Forecast:</h4>")
 
         const forecastOneTemp = responseForecast.list[3].main.temp;
         const forecastOneTemp2 = forecastOneTemp.toFixed(0);
@@ -98,7 +126,7 @@ const searchButton =  $("#search-button");
 
 
 
-
+        })
     })
     }).catch(function(){
         alert ("Please enter a valid city, Thank you.")
