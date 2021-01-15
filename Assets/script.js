@@ -16,7 +16,7 @@ getLocalStorage();
        
     $.ajax({ //ajax requests for weather and forecast with specific responses linked 
         url: queryURLweather,
-        method: "GET",
+        method: "GET"
     }).then(function(response) {
         $.ajax({
             url:queryURLforecast,
