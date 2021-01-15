@@ -1,20 +1,20 @@
 $(document).ready(function(){
 
-const cityArray = [];
-getLocalStorage();
-const searchButton =  $("#search-button");
+const cityArray = []; //empty array to save list of search cities
+getLocalStorage(); 
 
 
-    $("#search-button").on("click", function(){
 
+    $("#search-button").on("click", function(){ //event listener on click of search button linked via index
 
-        const apiKey = config.key
-        const cityName = $("#search-value").val()
-        //console.log(cityName)
+        
+        const apiKey = config.key //constant hiding the API key to the config.js so it cannot be stollen of of github
+        const cityName = $("#search-value").val() // creates a variable for the user's input
+        
         const queryURLweather = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey
         const queryURLforecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey
        
-    $.ajax({
+    $.ajax({ //ajax requests for weather and forecast with specific responses linked 
         url: queryURLweather,
         method: "GET",
     }).then(function(response) {
@@ -23,20 +23,21 @@ const searchButton =  $("#search-button");
             method: "GET"
         }).then(function(responseForecast){
 
-        // console.log(queryURLweather);
-        // console.log(response);
         const cityName = response.name
-        const cityNameDiv = $("<div>");
-        const date = new Date
+        const cityNameDiv = $("<div>"); // generating a div for appending the city name
+        const date = new Date //using the JS Date object to display the date
         const dateDisplay = (date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear()
-        cityNameDiv.text(cityName + " (" +dateDisplay+ ")")
-        cityNameDiv.css("font-size", "28px").css("font-weight", "bold")
+        const iconDay = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png" //creating const for adding icon image from API
+
+        cityNameDiv.text(cityName + " (" +dateDisplay+ ")") //creates text of the city name and date display
+        cityNameDiv.css("font-size", "28px").css("font-weight", "bold") //adds CSS styling to the display
         $("#today").empty();
         $("#today").append(cityNameDiv);
+        $("#today").append("<br><img src='" + iconDay + "'>");
 
-        const lat = response.coord.lat
-        const long = response.coord.lon
-        const queryURLuv = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=" + apiKey
+            const lat = response.coord.lat
+            const long = response.coord.lon
+            const queryURLuv = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=" + apiKey
 
         $.ajax({
             url: queryURLuv,
