@@ -11,8 +11,8 @@ getLocalStorage();
         const apiKey = config.key //constant hiding the API key to the config.js so it cannot be stolen of of github
         const cityName = $("#search-value").val() // creates a variable for the user's input
         
-        const queryURLweather = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey //adding imperial units so i don't have to convert Kelvin to Farenheit
-        const queryURLforecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey
+        const queryURLweather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey //adding imperial units so i don't have to convert Kelvin to Farenheit
+        const queryURLforecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey
        
     $.ajax({ //ajax requests for weather and forecast with specific responses linked 
         url: queryURLweather,
