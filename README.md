@@ -1,15 +1,13 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+This is a CWRU coding bootcamp assignement for a Weather Dashboard.  This homework shows that the student is able to link an API and call upon it to generate and append the information from it.  API's are used to make requests and access data and apply them functionally to a web page.  
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+Completion of this homework will show that the student is able to build a weather dashboard that will run in a browser and work functionally by displaying updated HTML and styled CSS.  The project uses JQuery to add elements to the HTML.  The homework portrays the ability to write functions, for loops, if then statments etc. to create the page.  The student will also have to store information locally.
 
 ## User Story
 
 ```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+This app would be usefull for someone that was potentially traveling to a city and wanted to get the upcoming weather forecast.
 ```
 
 ## Acceptance Criteria
@@ -24,23 +22,53 @@ WHEN I view the UV index
 THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
 WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+
+I was not able to complete this portion of the homework by making the cities clickable
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
+I was able to reopen the dashboard and see the previous searched city, however the content needs to be cleared upon inspection.
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
+Deployed application link: (https://jordanrantucci.github.io/Weather-Dashboard/)
+
 The following image demonstrates the application functionality:
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+![weather dashboard demo](./Assets/Butte.jpg)
 
-## Review
 
-You are required to submit the following for review:
+## Table of Contents
 
-* The URL of the deployed application.
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+## Installation
+
+No installation is needed for this project.
+
+
+## Usage 
+
+Download the code and open to view using your favorite browser, or click the link above to view the deployed site.
+
+
+## Credits
+
+Assignment (including original code) provided by CWRU Coding Bootcamp.
+
+
+## Contributing
+
+Contributions in the form of suggestions or feedback are appreciated.
+
+
+## Tests
+
+There are no tests for this project.
+
+---
