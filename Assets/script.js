@@ -8,7 +8,7 @@ getLocalStorage();
     $("#search-button").on("click", function(){ //event listener on click of search button linked via index
 
         
-        const apiKey = config.key //constant hiding the API key to the config.js so it cannot be stollen of of github
+        const apiKey = config2.key //constant hiding the API key to the config.js so it cannot be stollen of of github
         const cityName = $("#search-value").val() // creates a variable for the user's input
         
         const queryURLweather = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey //adding imperial units so i don't have to convert Kelvin to Farenheit
