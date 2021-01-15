@@ -103,7 +103,7 @@ getLocalStorage();
         const forecastOneHumidity = responseForecast.list[3].main.humidity //calling information from the array with an index of 3 which would be noon, I had to increase each one by 8 as the hours counted by 4 in the API so the forecast displays at noon each day
         const forecastOneDiv = $("<div>");
         forecastOneDiv.attr("class" , "col-2")
-            forecastOneDiv.css("border", "solid 3px blue").css("background-color", "lightblue").css("float", "left")
+        forecastOneDiv.css("border", "solid 3px blue").css("background-color", "lightblue").css("float", "left")
         $("#forecast").append(forecastOneDiv);
         (forecastOneDiv).append(day1+"<br>" + "Temp: " + forecastOneTemp2 + "°F" +"<br>"+ "Humidity: " + forecastOneHumidity + " %<br><img src ='" + icon1+"'>");
 
