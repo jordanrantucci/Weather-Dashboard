@@ -88,11 +88,11 @@ getLocalStorage();
             const day3 = (date.getMonth() + 1) + "/" + (date.getDate() + 3) + "/" + date.getFullYear()
             const day4 = (date.getMonth() + 1) + "/" + (date.getDate() + 4) + "/" + date.getFullYear()
             const day5 = (date.getMonth() + 1) + "/" + (date.getDate() + 5) + "/" + date.getFullYear()
-            const icon1 = "http://openweathermap.org/img/wn/" + responseForecast.list[3].weather[0].icon + ".png"
-            const icon2 = "http://openweathermap.org/img/wn/" + responseForecast.list[11].weather[0].icon + ".png"
-            const icon3 = "http://openweathermap.org/img/wn/" + responseForecast.list[19].weather[0].icon + ".png"
-            const icon4 = "http://openweathermap.org/img/wn/" + responseForecast.list[27].weather[0].icon + ".png"
-            const icon5 = "http://openweathermap.org/img/wn/" + responseForecast.list[35].weather[0].icon + ".png"   
+            const icon1 = "https://openweathermap.org/img/wn/" + responseForecast.list[3].weather[0].icon + ".png"
+            const icon2 = "https://openweathermap.org/img/wn/" + responseForecast.list[11].weather[0].icon + ".png"
+            const icon3 = "https://openweathermap.org/img/wn/" + responseForecast.list[19].weather[0].icon + ".png"
+            const icon4 = "https://openweathermap.org/img/wn/" + responseForecast.list[27].weather[0].icon + ".png"
+            const icon5 = "https://openweathermap.org/img/wn/" + responseForecast.list[35].weather[0].icon + ".png"   
 
         $("#forecast").empty(); //empty clears the forecast div so when a new city is called it doesn't overlap
         $("#forecast").append("<h4>5-day Forecast:</h4>")
