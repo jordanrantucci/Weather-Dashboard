@@ -1,20 +1,19 @@
 $(document).ready(function(){
 
-const cityArray = []; //empty array to save list of search cities
+const cityArray = []; 
 getLocalStorage(); 
 
 
 
-    $("#search-button").on("click", function(){ //event listener on click of search button linked via index
-
+    $("#search-button").on("click", function(){ 
         
         const apiKey = config.key
         const cityName = $("#search-value").val() // creates a variable for the user's input
         
-        const queryURLweather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey //adding imperial units so i don't have to convert Kelvin to Farenheit
+        const queryURLweather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey 
         const queryURLforecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey
        
-    $.ajax({ //ajax requests for weather and forecast with specific responses linked 
+    $.ajax({ 
         url: queryURLweather,
         method: "GET"
     }).then(function(response) {
@@ -27,7 +26,7 @@ getLocalStorage();
         const cityNameDiv = $("<div>"); // generating a div for appending the city name
         const date = new Date //using the JS Date object to display the date
         const dateDisplay = (date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear()
-        const iconDay = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png" //creating const for adding icon image from API
+        const iconDay = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png" //creating const for adding icon image from API
 
         cityNameDiv.text(cityName + " (" +dateDisplay+ ")") //creates text of the city name and date display
         cityNameDiv.css("font-size", "28px").css("font-weight", "bold") //adds CSS styling to the display
@@ -37,7 +36,7 @@ getLocalStorage();
 
             const lat = response.coord.lat
             const long = response.coord.lon
-            const queryURLuv = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=" + apiKey //api for the UV index connecting the onecall
+            const queryURLuv = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=" + apiKey 
 
         $.ajax({
             url: queryURLuv,
